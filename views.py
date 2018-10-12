@@ -3,17 +3,11 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
-    # This is similar to ones we have done before. Instead of keeping
-    # the HTML / template in a separate directory, we just reply with
-    # the HTML embedded here.
-    return HttpResponse('''
-        <h1>Welcome to my home page!</h1>
-        <a href="/about-me">About</a> <br />
-        <a href="/contact-me">Contact me</a> <br />
-        <a href="/blogs">Blogs</a> <br />
-        <a href="/projects">Projects</a> <br />
-        <a href="/github-api-example">See my GitHub contributions</a> <br />
-    ''')
+    content_html = open("content/index.html").read()
+    context = {
+        "content": content_html
+    }
+    return render(request, "base.html", context)
 
 
 def about_me(request):
@@ -28,7 +22,7 @@ def about_me(request):
 
 
 def contact_me(request):
-    content_html = open("content/contact.html")
+    content_html = open("content/contact.html").read()
     context = {
         "content": content_html
     }
@@ -36,7 +30,7 @@ def contact_me(request):
 
 
 def blogs(request):
-    content_html = open("content/blogs.html")
+    content_html = open("content/blogs.html").read()
     context = {
         "content": content_html
     }
@@ -44,16 +38,16 @@ def blogs(request):
 
 
 def projects(request):
-    content_html = open("content/projects.html")
+    content_html = open("content/projects.html").read()
     context = {
-        "content": content_html
+        "content": content_html,
     }
     return render(request, "base.html", context)
 
 
 def github_api_example(request):
     # We can also combine Django with APIs
-    response = requests.get('https://api.github.com/users/michaelpb/repos')
+    response = requests.get('https://api.github.com/users/grace5l5/repos')
     repos = response.json()
     context = {
         'github_repos': repos,

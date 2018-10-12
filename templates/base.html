@@ -5,7 +5,7 @@
   <!-- meta -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>{{ title }}</title>
+  <title>{% block title %}{% endblock %}</title>
   <meta content="" name="keywords">
   <meta content="" name="description">
 
@@ -46,12 +46,15 @@
       <div class="container">
         
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
-        <a href="/about-me">About</a> <br />
-        <a href="/contact-me">Contact me</a> <br />
-        <a href="/blogs">Blogs</a> <br />
-        <a href="/projects">Projects</a> <br />
-        <a href="/github-api-example">See my GitHub contributions</a> <br />
         
+        <ul class="nav-menu list-unstyled">
+          <a href="/about-me" class="smoothScroll">About</a>
+          <a href="/contact-me" class="smoothScroll">Contact me</a>
+          <a href="/blogs" class="smoothScroll">Blogs</a>
+          <a href="/projects" class="smoothScroll">Projects</a>
+          <a href="/github-api-example" class="smoothScroll">GitHub</a>
+        </ul>
+
       </div>
     </div>
   </nav>

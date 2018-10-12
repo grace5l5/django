@@ -48,11 +48,10 @@
         <div class="responsive"><i data-icon="m" class="ion-navicon-round"></i></div>
         
         <ul class="nav-menu list-unstyled">
-          <a href="/about-me" class="smoothScroll">About</a>
-          <a href="/contact-me" class="smoothScroll">Contact me</a>
+          <a href="/" class="smoothScroll">Home</a>
           <a href="/blogs" class="smoothScroll">Blogs</a>
           <a href="/projects" class="smoothScroll">Projects</a>
-          <a href="/github-api-example" class="smoothScroll">GitHub</a>
+          <a href="/contact-me" class="smoothScroll">Contact me</a>
         </ul>
 
       </div>
@@ -60,7 +59,11 @@
   </nav>
   <!-- End navbar -->
 
-{{ content|safe }}
+
+<div class="content">
+  {% block content %}
+  {% endblock content %}
+</div>
 
 
 

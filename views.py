@@ -1,5 +1,4 @@
 import requests
-from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
@@ -22,7 +21,5 @@ def projects(request):
     repos = response.json()
     context = {
         'github_repos': repos,    
-    }
+        }
     return render(request, "projects.html", context)
-
-
